@@ -29,8 +29,6 @@ net.ipv4.ip_forward = 1
 EOF
 
 sudo sysctl -p
-
-sudo yum update -y
-sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=`sudo cat /etc/hosts | head -n1 | cut -d " " -f1`
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=<MASTER HOST IP>
 sudo sleep 120 && sudo mkdir -p ~/.kube && sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config && sudo chown -R $(id -u):$(id -g) ~/.kube
 sudo kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml

@@ -29,4 +29,3 @@ net.ipv4.ip_forward = 1
 EOF
 
 sudo sysctl -p
-sudo yum update -y
