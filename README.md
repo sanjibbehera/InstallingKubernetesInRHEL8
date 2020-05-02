@@ -1,6 +1,6 @@
 # InstallingKubernetesInRHEL8
-Installation of Kubernetes in RHEL 8 using Kubeadm Package Manager.
-The Repo code is example/reference to be used as steps to install Docker and Kubernetes in RHEL 8.
+Installation of Kubernetes in RHEL 8 using Kubeadm Package Manager.  
+The Repo code is example/reference to be used as steps to install Docker and Kubernetes in RHEL 8.  
 I have added elaborate steps in the README file. Please follow the same.
 
     Preview:
