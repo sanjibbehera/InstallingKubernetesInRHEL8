@@ -1,5 +1,7 @@
 # InstallingKubernetesInRHEL8
 Installation of Kubernetes in RHEL 8 using Kubeadm Package Manager.
+The Repo code is example/reference to be used as steps to install Docker and Kubernetes in RHEL 8.
+I have added elaborate steps in the README file. Please follow the same.
 
     Preview:
     I used VMWare Workstation Player(Virtualization Software Suite via VMWare) to spin up 3 RHEL 8[8.2 (Ootpa)] VM's.
@@ -15,8 +17,8 @@ Installation of Kubernetes in RHEL 8 using Kubeadm Package Manager.
          IFNAME=$1
          ADDRESS="$(ip -4 addr show $IFNAME | grep "inet" | head -1 |awk '{print $2}' | cut -d/ -f1)"
          sudo bash -c "echo '${ADDRESS} ${HOSTNAME} ${HOSTNAME}.local' >> /etc/hosts"
-      6b) execute the shell script after passing the correct Interface name. 
-      7) Now again adjust the file "/etc/hosts" with the IP and HOSTNAME which should look like below.
+      6b) Execute the shell script after passing the correct Interface name. 
+      7) Now again adjust the file "/etc/hosts" with the IP and HOSTNAME which should look like below, For eg.
          192.168.142.131 Node1
          192.168.142.132 Node2
          192.168.142.128 Master
