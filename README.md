@@ -9,7 +9,14 @@ Installation of Kubernetes in RHEL 8 using Kubeadm Package Manager.
       3) Creae a new OS user and provide sudo privilege to this new user.
       4) Set the hostname of the VM to be used for Kubernetes via the command. <hostnamectl set-hostname [HOSTNAME]>
       5) Now reboot the VM to use the GNOME GUI.
-      6) After Reboot adjust the file "/etc/hosts" with the IP and HOSTNAME which should look like below.
+      6a) Additionally setup a shell script to setup the hosts with the correct IP whose content is given below.
+         #!/bin/bash
+         set -e
+         IFNAME=$1
+         ADDRESS="$(ip -4 addr show $IFNAME | grep "inet" | head -1 |awk '{print $2}' | cut -d/ -f1)"
+         sudo bash -c "echo '${ADDRESS} ${HOSTNAME} ${HOSTNAME}.local' >> /etc/hosts"
+      6b) execute the shell script after passing the correct Interface name. 
+      7) Now again adjust the file "/etc/hosts" with the IP and HOSTNAME which should look like below.
          192.168.142.131 Node1
          192.168.142.132 Node2
          192.168.142.128 Master
