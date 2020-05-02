@@ -1,10 +1,11 @@
 # InstallingKubernetesInRHEL8
 Installation of Kubernetes in RHEL 8 using Kubeadm Package Manager.  
 The Repo code is example/reference to be used as steps to install Docker and Kubernetes in RHEL 8.  
-I have added elaborate steps in the README file. Please follow the same.
+I have added elaborate steps in the README file. Please follow the same.  
+Important Note: The default interface naming convention in RHEL8 start with "ens" instead of "eth" as in RHEL7.
 
     Preview:
-    I used VMWare Workstation Player(Virtualization Software Suite via VMWare) to spin up 3 RHEL 8[8.2 (Ootpa)] VM's.
+    I have used VMWare Workstation Player(VMWare Virtualization Software Suite) to spin up 3 RHEL 8[8.2 (Ootpa)] VM's.
     Within Minimal Install option, booted the VM and below configuration were made to each of the VM.
       1) Login with root user & change to GUI with cmd: <yum groupinstall "Server with GUI">
       2) To make the GUI option as default, use the command:- <systemctl set-default graphical.target>
@@ -17,7 +18,8 @@ I have added elaborate steps in the README file. Please follow the same.
          IFNAME=$1
          ADDRESS="$(ip -4 addr show $IFNAME | grep "inet" | head -1 |awk '{print $2}' | cut -d/ -f1)"
          sudo bash -c "echo '${ADDRESS} ${HOSTNAME} ${HOSTNAME}.local' >> /etc/hosts"
-      6b) Execute the shell script after passing the correct Interface name. 
+      6b) Execute the shell script after passing the correct Interface name. [Correct Interface name should be passed]
+      --> you can find the correct interface name using the command. <ip -4 a show>
       7) Now again adjust the file "/etc/hosts" with the IP and HOSTNAME which should look like below, For eg.
          192.168.142.131 Node1
          192.168.142.132 Node2
