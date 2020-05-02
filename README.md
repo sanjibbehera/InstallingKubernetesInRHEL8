@@ -2,6 +2,7 @@
 Installation of Kubernetes in RHEL 8 using Kubeadm Package Manager.  
 The Repo code is example/reference to be used as steps to install Docker and Kubernetes in RHEL 8.  
 I have added elaborate steps in the README file. Please follow the same.  
+This is a simple K8s & Docker installation in 3 VMs.  
 Important Note: The default interface naming convention in RHEL8 start with "ens" instead of "eth" as in RHEL7.
 
     Preview:
@@ -26,7 +27,7 @@ Important Note: The default interface naming convention in RHEL8 start with "ens
          192.168.142.128 Master
     
 
-Docker Install Steps:
+Docker Install Steps for RHEL 8 VM:
 =================
 
     Create a shell script with the below content, just copy the content and Docker should be installed in each VMs.
@@ -57,3 +58,23 @@ Docker Install Steps:
       sudo systemctl daemon-reload
       sudo systemctl restart docker
     
+K8s Installation on Master RHEL 8 VM.
+=====================
+
+    The shell script "installKubeadmMaster.sh" has hte details to install Kubernetes in the master VM  
+    which is also known as the Kuebernetes Control Plane.
+    As I am working on a dev/test environment, I have disable the firewall to make it easy for me.
+    
+    But if you are working in production environment, you must enable the below ports in your firewall.
+    Details are provided below in tabular format:-
+        PROTOCOL        PORT        SOURCE                                          APPLICATION
+        TCP             443/6443    Worker Nodes, API Requests, and End-Users       KUBEAPISERVER
+        TCP             44134       ----                                            HELM
+        TCP             2379-2380   Master Nodes & Worker Nodes                     ETCD
+        TCP             10250       Master nodes                                    KUBELET
+        TCP             10251       Master Nodes                                    KUBE-SCHEDULER
+        TCP             10252       Master Nodes                                    KUBE-CONTROLLER-MANAGER
+        TCP             10255       Master Nodes                                    KUBELET READ-ONLY
+        TCP             30000-32767 ----                                            NODEPORT SERVICES
+        
+
