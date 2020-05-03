@@ -71,6 +71,7 @@ K8s Installation on Master RHEL 8 VM.
         PROTOCOL        PORT        SOURCE                                          APPLICATION
         TCP             443/6443    Worker Nodes, API Requests, and End-Users       KUBEAPISERVER
         TCP             44134       ----                                            HELM
+        TCP             8001        ----                                            DASHBOARD
         TCP             2379-2380   Master Nodes & Worker Nodes                     ETCD
         TCP             10250       Master nodes                                    KUBELET
         TCP             10251       Master Nodes                                    KUBE-SCHEDULER
