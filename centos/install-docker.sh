@@ -9,7 +9,7 @@ sudo systemctl enable docker
   
 sudo bash -c "cat >> /etc/docker/daemon.json" <<EOF
 {
-    "exec-opts": ["native.cgroupdriver=systemd"],
+    "exec-opts": ["native.cgroupdriver=cgroupfs"],
     "log-driver": "json-file",
     "log-opts": {
     "max-size": "100m"

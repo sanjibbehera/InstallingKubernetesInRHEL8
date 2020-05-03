@@ -38,4 +38,4 @@ sudo sysctl -p
 
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --apiserver-advertise-address=`sudo cat /etc/hosts | head -3 | tail -1 | cut -d " " -f1`
 sudo sleep 120 && sudo mkdir -p ~/.kube && sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config && sudo chown -R $(id -u):$(id -g) ~/.kube
-sudo kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
