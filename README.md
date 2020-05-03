@@ -269,7 +269,8 @@ Important Note for Worker Nodes.
 
 #### Trigger NGINX APP Deployment in Cluster.
 
-    Use the below YAML File to trigger NGINX APP Deployement in the Cluster.
+    Use the below YAML File content and save it as 'nginx-deploy.yaml' to spinup NGINX APP Deployement in the Cluster.
+    Once the file is saved, the command for the same is: kubectl create -f nginx-deploy.yaml
     
     apiVersion: apps/v1
     kind: Deployment
