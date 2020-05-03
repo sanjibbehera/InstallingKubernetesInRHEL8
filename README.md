@@ -192,19 +192,21 @@ Important Note for Worker Nodes.
     
 #### Note to check...
 
-Now once the worker nodes join the kubernetes cluster, make a note to check the messages file  
-in '/var/log' folder to check if there are any errors.  
-Check the status of the worker nodes via the command 'kubectl get nodes'  
-Also check the status of worker pods via the command 'kubeclt get pods --all-namespaces -o wide'  
-<The above command is to check all the pods in all namespaces present in the cluster>  
-Important Note is that the pods take little time to startup, so make a note of the RESTART column,  
-If that is 0 and the pod status is RUNNING, then everything is fine.
+    Now once the worker nodes join the kubernetes cluster, make a note to check the messages file
+    in '/var/log' folder to check if there are any errors.  
+    Check the status of the worker nodes via the command 'kubectl get nodes'  
+    Also check the status of worker pods via the command 'kubeclt get pods --all-namespaces -o wide'  
+    <The above command is to check all the pods in all namespaces present in the cluster>  
+    Important Note is that the pods take little time to startup, so make a note of the RESTART column,  
+    If that is 0 and the pod status is RUNNING, then everything is fine.
     
 #### Install Kubernetes Dashboard...
 
-Please follow the below steps to setup dashboard to have a graphical GUI representation of the Cluster.  
-Please execute the below command to deploy the dashboard. 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml  
+    Please follow the below steps to setup dashboard to have a graphical GUI representation of the Cluster.  
+    Please execute the below command to deploy the dashboard. 
+
+<b>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml</b>
+
 [CREATE ADMIN USER FOR THE DASHBOARD], use the below YAML FILE to create serviceaccount:-  
 
     apiVersion: v1
@@ -265,7 +267,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/a
     http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
 
 
-#### Trigger APP Deployment in Cluster.
+#### Trigger NGINX APP Deployment in Cluster.
 
     Use the below YAML File to trigger NGINX APP Deployement in the Cluster.
     
